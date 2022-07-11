@@ -1,7 +1,7 @@
 package com.bosonit.RabbitMQ;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
-import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,6 +17,6 @@ public class Publisher {
     private Queue queue;
 
     public void send(Object message){
-        rabbitTemplate.convertAndSend(queue.getName(),message);
+        rabbitTemplate.convertAndSend(queue.getName(),(message));
     }
 }

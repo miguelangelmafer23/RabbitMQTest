@@ -12,7 +12,7 @@ public class Consumer {
     @RabbitListener(queues = {"${bosonit.queue.name}"})
     public void receive (@Payload String message){
         
-        log.info("Received message{} ", message);
+        log.info("Received message {} ", message);
         
         makeSlow();
 
